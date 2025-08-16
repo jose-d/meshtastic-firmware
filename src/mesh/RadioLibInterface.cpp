@@ -7,6 +7,7 @@
 #include "configuration.h"
 #include "error.h"
 #include "main.h"
+#include "variant.h"
 #include "mesh-pb-constants.h"
 #include <pb_decode.h>
 #include <pb_encode.h>
@@ -484,11 +485,13 @@ void RadioLibInterface::startReceive()
 {
     isReceiving = true;
     powerMon->setState(meshtastic_PowerMon_State_Lora_RXOn);
+    digitalWrite(PIN_LED1, HIGH);
 }
 
 void RadioLibInterface::configHardwareForSend()
 {
     powerMon->setState(meshtastic_PowerMon_State_Lora_TXOn);
+    digitalWrite(PIN_LED1, LOW);
 }
 
 void RadioLibInterface::setStandby()
