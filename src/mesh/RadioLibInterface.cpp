@@ -485,13 +485,13 @@ void RadioLibInterface::startReceive()
 {
     isReceiving = true;
     powerMon->setState(meshtastic_PowerMon_State_Lora_RXOn);
-    digitalWrite(PIN_LED1, HIGH);
+    digitalWrite(PIN_LED3, HIGH);
 }
 
 void RadioLibInterface::configHardwareForSend()
 {
     powerMon->setState(meshtastic_PowerMon_State_Lora_TXOn);
-    digitalWrite(PIN_LED1, LOW);
+    digitalWrite(PIN_LED3, LOW);
 }
 
 void RadioLibInterface::setStandby()
