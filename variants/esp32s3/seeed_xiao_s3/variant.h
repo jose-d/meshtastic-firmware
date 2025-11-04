@@ -33,7 +33,7 @@ L76K GPS Module Information : https://www.seeedstudio.com/L76K-GNSS-Module-for-S
 #define LED_PIN 48
 #define LED_STATE_ON 1 // State when LED is lit
 
-#define BUTTON_PIN 21 // This is the Program Button
+// #define BUTTON_PIN 21 // This is the Program Button //jose: disable to save onoe thread.
 #define BUTTON_NEED_PULLUP
 
 #define BATTERY_PIN -1
@@ -45,7 +45,7 @@ L76K GPS Module Information : https://www.seeedstudio.com/L76K-GNSS-Module-for-S
     L76K Expansion Board can not directly used, L76K Reset Pin needs to override or physically remove it,
     otherwise it will conflict with the SPI pins
 */
-#define GPS_L76K
+//#define GPS_L76K
 #ifdef GPS_L76K
 #define GPS_RX_PIN 44
 #define GPS_TX_PIN 43
@@ -57,11 +57,29 @@ L76K GPS Module Information : https://www.seeedstudio.com/L76K-GNSS-Module-for-S
 #define PIN_GPS_STANDBY 1
 #endif
 
-// XIAO S3 Expansion board  has 1.3 inch OLED Screen
-#define USCREEN_SSD1306
 
-#define I2C_SDA 5
-#define I2C_SCL 6
+
+#define HAS_SCREEN 0
+#define HAS_TRACKBALL 0
+#define MESHTASTIC_EXCLUDE_MQTT 1
+#define MESHTASTIC_EXCLUDE_WEBSERVER 1
+#define MESHTASTIC_EXCLUDE_GPS 1
+
+//#define MESHTASTIC_EXCLUDE_I2C 1
+#define HAS_ONE_WIRE 1
+#define ONE_WIRE_BUS_PIN 6
+
+#define DEBUG_LOOP_TIMING 1
+
+//#define HAS_TELEMETRY 0
+//#define MESHTASTIC_EXCLUDE_ENVIRONMENTAL_SENSOR 0
+//#define MESHTASTIC_EXCLUDE_POWER_TELEMETRY 1
+
+// XIAO S3 Expansion board  has 1.3 inch OLED Screen
+//#define USCREEN_SSD1306
+
+//#define I2C_SDA 5
+//#define I2C_SCL 6
 
 // XIAO S3 LORA module
 #define USE_SX1262

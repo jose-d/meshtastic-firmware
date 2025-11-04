@@ -101,6 +101,10 @@ extern void drawCommonHeader(OLEDDisplay *display, int16_t x, int16_t y, const c
 #include "Sensor/MLX90632Sensor.h"
 #endif
 
+#if defined(HAS_ONE_WIRE) && __has_include(<DallasTemperature.h>)
+#include "Sensor/DS18B20Sensor.h"
+#endif
+
 #if __has_include(<DFRobot_LarkWeatherStation.h>)
 #include "Sensor/DFRobotLarkSensor.h"
 #endif
@@ -261,6 +265,11 @@ void EnvironmentTelemetryModule::i2cScanFinished(ScanI2C *i2cScanner)
 #endif
 #if __has_include(<SparkFun_Qwiic_Scale_NAU7802_Arduino_Library.h>)
     addSensor<NAU7802Sensor>(i2cScanner, ScanI2C::DeviceType::NAU7802);
+#endif
+
+#if defined(HAS_ONE_WIRE) && __has_include(<DallasTemperature.h>)
+    // Not an I2C device; uses OneWire bus
+    addSensor<DS18B20Sensor>(i2cScanner, ScanI2C::DeviceType::NONE);
 #endif
 
 #endif
