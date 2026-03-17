@@ -47,6 +47,11 @@ extern bool isUSBPowered;
 extern Adafruit_DRV2605 drv;
 #endif
 
+#ifdef HAS_ONE_WIRE
+#include <OneWire.h>
+#include <DallasTemperature.h>
+#endif
+
 #ifdef HAS_I2S
 #include "AudioThread.h"
 extern AudioThread *audioThread;
